@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM  from "react-dom";
 import SeasonDisplay from "./SeasonDisplay";
+import LoadingSpinner from "./LoadingSpinner";
 
 
 
@@ -39,15 +40,13 @@ class App extends React.Component {
   }
 
 
-
-
   render() {
    if(this.state.errorMessage && !this.state.latitude) {
      return <div>Error: {this.state.errorMessage}</div>
    } else if (!this.state.errorMessage && this.state.latitude){
       return<SeasonDisplay latitude={this.state.latitude}/>
    }
-   return <div>Loading!</div>
+   return <LoadingSpinner message="Please accept location request"/>
   }
   
 }
